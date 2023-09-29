@@ -37,17 +37,17 @@ devices = 1
 
 # Hyperparameters
 learning_rate = 3e-4
-batch_size = 128
-micro_batch_size = 4
+batch_size = 4
+micro_batch_size = 1
 gradient_accumulation_iters = batch_size // micro_batch_size
 assert gradient_accumulation_iters > 0
-max_iters = 50000  # train dataset size
+max_iters = 4000  # train dataset size
 weight_decay = 0.01
 lora_r = 8
 lora_alpha = 16
 lora_dropout = 0.05
-lora_query = True
-lora_key = False
+lora_query = False
+lora_key = True
 lora_value = True
 lora_projection = False
 lora_mlp = False

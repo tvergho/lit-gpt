@@ -21,22 +21,22 @@ lora_r = 8
 lora_alpha = 16
 lora_dropout = 0.05
 lora_query = True
-lora_key = False
+lora_key = True
 lora_value = True
-lora_projection = False
-lora_mlp = False
-lora_head = False
+lora_projection = True
+lora_mlp = True
+lora_head = True
 
 
 def main(
-    prompt: str = "What food do lamas eat?",
+    prompt: str = "Based on the tag in the JSON input, extract relevant underlines from the text that summarize the text and are relevant to the argument in the tag. Return a JSON object containing the underlines.",
     input: str = "",
-    lora_path: Path = Path("out/lora/alpaca/lit_model_lora_finetuned.pth"),
-    checkpoint_dir: Path = Path("checkpoints/stabilityai/stablelm-base-alpha-3b"),
+    lora_path: Path = Path("out/lit_model_lora_finetuned.pth"),
+    checkpoint_dir: Path = Path("checkpoints/NousResearch/Nous-Hermes-llama-2-7b"),
     quantize: Optional[Literal["bnb.nf4", "bnb.nf4-dq", "bnb.fp4", "bnb.fp4-dq", "bnb.int8", "gptq.int4"]] = None,
     max_new_tokens: int = 100,
     top_k: int = 200,
-    temperature: float = 0.8,
+    temperature: float = 0.1,
     strategy: str = "auto",
     devices: int = 1,
     precision: Optional[str] = None,
